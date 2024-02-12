@@ -9,10 +9,11 @@ export const useAddTasks = () => {
     })
     const [loading, setLoading] = useState(true)
 
-    const handleform = async () => {
-        axios(`http://localhost:5000/add/note`, inVal)
+    const handleform =(e) => {
+        e.preventDefault()
+        axios.post(`http://localhost:5000/add/note`, inVal)
             .then((res) => {
-                if (res.success) {
+                if (res.data.success) {
                     setInpval({
                         ...inVal,
                         task: '',
