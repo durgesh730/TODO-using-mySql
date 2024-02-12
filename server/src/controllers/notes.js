@@ -9,7 +9,7 @@ const AddTask = async (req, res) => {
         };
         console.log(newNotes, "new notes")
         const [result] = await Note.create(newNotes);
-        res.status(201).json({ message: 'Notes created!', notesId: result.insertId });
+        res.status(201).json({ message: 'Notes created!', notesId: result.insertId, success: true });
     } catch (err) {
         res.status(500).json({ msg: "Internal server error" })
     }
@@ -33,7 +33,7 @@ const UpdateUser = async (req, res, next) => {
             completed: req.body.completed
         };
         await Note.update(id, updatedUser);
-        res.status(200).json({ message: 'User updated!' });
+        res.status(200).json({ message: 'User updated!', success: true });
     } catch (err) {
         res.status(500).json({ msg: "Internal server error" })
     }
@@ -43,7 +43,7 @@ const DeleteUser = async (req, res) => {
     try {
         const id = req.params.id;
         await Note.delete(id);
-        res.status(200).json({ message: 'User deleted!' });
+        res.status(200).json({ message: 'User deleted!', success: true });
     } catch (err) {
         res.status(500).json({ msg: "Internal server error" })
     }
