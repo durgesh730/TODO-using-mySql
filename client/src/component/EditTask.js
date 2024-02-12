@@ -22,10 +22,10 @@ const EditTaskModal = ({ setInput, input }) => {
                     <textarea type="title" className="form-control" id="title" value={input.description} onChange={(e) => setInput((pre) => ({ ...pre, description: e.target.value }))}
                         name="dueDate" aria-describedby="emailHelp" placeholder="Date" />
                 </div>
-                <div className="col-6 mb-4 mx-auto">
-                    <input type="text" className="form-control" id="" value={input.completed} onChange={(e) => setInput((pre) => ({ ...pre, completed: e.target.value }))}
-                        name="status" aria-describedby="emailHelp" placeholder="Status" />
-                </div>
+                {/* <div className="col-6 mb-4 mx-auto">
+                    input type="text" className="form-control" id="" value={input.completed} onChange={(e) => setInput((pre) => ({ ...pre, completed: e.target.value }))}
+                        name="status" aria-describedby="emailHelp" placeholder="Status" /><
+                </div> */}
 
                 <div className="text-center">
                     <button type="button" className="btn submit mx-4" onClick={handleClose}>Close</button>

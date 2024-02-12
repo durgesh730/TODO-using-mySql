@@ -24,15 +24,17 @@ const GetAllUsers = async (req, res) => {
     }
 };
 
-const UpdateUser = async (req, res, next) => {
+const UpdateUser = async (req, res) => {
     try {
-        const id = req.params.id;
-        const updatedUser = {
+        const id = parseInt(req.params.id);
+        const updatedNote = {
+            id,
             title: req.body.title,
             description: req.body.description,
-            completed: req.body.completed
+            completed: true
         };
-        await Note.update(id, updatedUser);
+        console.log(id, updatedNote, "durgesh")
+        await Note.update(id, updatedNote);
         res.status(200).json({ message: 'User updated!', success: true });
     } catch (err) {
         res.status(500).json({ msg: "Internal server error" })

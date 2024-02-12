@@ -14,7 +14,7 @@ class Note {
     }
 
     static update(id, updatedNote) {
-        return db.execute('UPDATE note SET title = ?, description = ?  completed=? WHERE id = ?', [id, updatedNote.title, updatedNote.description, updatedNote.completed]);
+        return db.execute('UPDATE note SET title = ?, description = ?, completed = ? WHERE id = ?', [updatedNote.title, updatedNote.description, updatedNote.completed, id]);
     }
 
     static delete(id) {

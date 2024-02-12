@@ -7,7 +7,7 @@ import { useAddTasks } from '../hooks/customhooks';
 const AddTask = () => {
     const { handleform, inVal, setInpval } = useAddTasks()
     const [input, setInput] = useState({
-        id: "",
+        id: 0,
         title: '',
         description: "",
         completed: false
