@@ -7,7 +7,6 @@ const AddTask = async (req, res) => {
             description: req.body.description,
             completed: req.body.completed
         };
-        console.log(newNotes, "new notes")
         const [result] = await Note.create(newNotes);
         res.status(201).json({ message: 'Notes created!', notesId: result.insertId, success: true });
     } catch (err) {
@@ -31,9 +30,8 @@ const UpdateUser = async (req, res) => {
             id,
             title: req.body.title,
             description: req.body.description,
-            completed: true
+            completed: req.body.completed
         };
-        console.log(id, updatedNote, "durgesh")
         await Note.update(id, updatedNote);
         res.status(200).json({ message: 'User updated!', success: true });
     } catch (err) {

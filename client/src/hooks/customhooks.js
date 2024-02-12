@@ -9,24 +9,32 @@ export const useAddTasks = () => {
     })
     const [loading, setLoading] = useState(true)
 
-    const handleform =(e) => {
+    const handleform = (e) => {
         e.preventDefault()
-        axios.post(`http://localhost:5000/add/note`, inVal)
-            .then((res) => {
-                if (res.data.success) {
-                    setInpval({
-                        ...inVal,
-                        task: '',
-                        duedate: ""
-                    })
-                    window.location.reload()
-                }
-            }).finally(() => {
-                setLoading(false)
-            })
+        if (!inVal.title.trim()) {
+            alert("Title Required")
+            return;
+        } else if (!inVal.description.trim()) {
+            alert("Description Required")
+            return;
+        }
+        else {
+            axios.post(`http://localhost:5000/add/note`, inVal)
+                .then((res) => {
+                    if (res.data.success) {
+                        setInpval({
+                            ...inVal,
+                            task: '',
+                            duedate: ""
+                        })
+                        window.location.reload()
+                    }
+                }).finally(() => {
+                    setLoading(false)
+                })
+        }
 
     }
-
     return { handleform, inVal, setInpval, loading }
 }
 
@@ -65,7 +73,9 @@ export const useEditTask = (input) => {
     const handleSumNote = () => {
         axios.put(`http://localhost:5000/edit/note/${input.id}`, input)
             .then((res) => {
-                // setTask(res.data.notes)
+                // setTask (res.data.notes)
+                window.location.reload()
+
             })
             .catch((err) => {
                 console.log(err)
@@ -74,7 +84,7 @@ export const useEditTask = (input) => {
             })
     }
 
-    return { handleSumNote, loading}
+    return { handleSumNote, loading }
 }
 
 export const useDeleteTask = () => {

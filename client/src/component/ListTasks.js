@@ -41,7 +41,7 @@ const ListTasks = ({ setInput }) => {
                                         <td>{item.completed == 0 ?
                                             <span className='text-danger'>Not Completed</span>
                                             :
-                                            <span className='text-success' >Not Completed</span>
+                                            <span className='text-success' >Completed</span>
                                         }</td>
                                         <td>
                                             <div className='pt-3'>
