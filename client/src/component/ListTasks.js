@@ -38,7 +38,11 @@ const ListTasks = ({ setInput }) => {
                                         <td>{index + 1}</td>
                                         <td>{item.title}</td>
                                         <td>{item.description}</td>
-                                        <td>{item.completed}</td>
+                                        <td>{item.completed == 0 ?
+                                            <span className='text-danger'>Not Completed</span>
+                                            :
+                                            <span className='text-success' >Not Completed</span>
+                                        }</td>
                                         <td>
                                             <div className='pt-3'>
                                                 <button className='btn-view' onClick={() => { handleOpen(item) }}>Edit</button>

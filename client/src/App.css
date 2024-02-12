@@ -8,6 +8,10 @@
     padding-top: 4rem;
 }
 
+.navbar{
+    background-color: #8443e5;
+}
+
 .firstform {
     width: 100%;
     display: flex;
@@ -55,9 +59,9 @@
 }
 
 .formfields form button {
-    background-color: rgb(74, 74, 236);
+    background-color: #8443e5;
     text-align: center;
-    width: 40%;
+    width: 100%;
     color: white;
 }
 
@@ -150,11 +154,11 @@
 /* Modal Content/Box */
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto;
+    margin: 10% auto;
     /* 15% from the top and centered */
-    padding: 20px;
+    padding: 10px;
     border: 1px solid #888;
-    width: 80%;
+    width: 50%;
     /* Could be more or less, depending on screen size */
 }
 

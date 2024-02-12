@@ -35,7 +35,7 @@ const AddTask = () => {
                             <input type="fname" className="form-control" value={inVal.title} name="title" id="title" aria-describedby="emailHelp" placeholder="Title" onChange={setVal} minlength="3" />
                         </div>
                         <div className="form-group text-center">
-                            <input type="text" className="form-control" id="description" name="description" value={inVal.description} placeholder="Description" onChange={setVal} />
+                            <textarea type="text" className="form-control" id="description" name="description" value={inVal.description} placeholder="Description" onChange={setVal} />
                         </div>
                     </div>
                     <div className='formbutton my-4'>
